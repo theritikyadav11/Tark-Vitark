@@ -49,9 +49,10 @@ export default function Navbar() {
           <img
             src="/logo3.png"
             alt="Tark-Vitark Logo"
-            className="w-14 h-14 object-contain "
+            className="w-20 h-20 object-contain "
           />
-          <span className="text-lg font-semibold">Tark-Vitark</span>
+
+          <span className="text-lg font-semibold">TarkVitarkGlobal</span>
         </Link>
 
         {/* Desktop menu */}
@@ -103,10 +104,10 @@ export default function Navbar() {
           </div>
 
           <Link
-            to="/partnership-alliance"
+            to="/institutions"
             className="hover:text-red-700 transition-colors"
           >
-            Partnership Alliances
+            Institutions
           </Link>
 
           <Link to="/articles" className="hover:text-red-700 transition-colors">
@@ -217,11 +218,11 @@ export default function Navbar() {
           </div>
 
           <Link
-            to="/partnership-alliance"
+            to="/institutions"
             className="block py-2 hover:text-red-700"
             onClick={() => setMobileOpen(false)}
           >
-            Partnership Alliances
+            Institutions
           </Link>
 
           <Link

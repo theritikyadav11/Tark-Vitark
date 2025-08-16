@@ -13,7 +13,7 @@ import AwakeningPrograms from "./pages/student_scholar/AwakeningPrograms";
 import EngagementPrograms from "./pages/student_scholar/EngagementPrograms";
 
 import Articles from "./pages/articles";
-import Partnership_Alliance from "./pages/Partnership_Alliance";
+import Institutions from "./pages/Institutions";
 
 const App = () => {
   return (
@@ -32,10 +32,7 @@ const App = () => {
         </Route>
 
         <Route path="/articles" element={<Articles />} />
-        <Route
-          path="/partnership-alliance"
-          element={<Partnership_Alliance />}
-        />
+        <Route path="/institutions" element={<Institutions />} />
       </Routes>
     </Router>
   );
