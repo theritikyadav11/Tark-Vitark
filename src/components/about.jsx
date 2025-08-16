@@ -72,7 +72,7 @@ const About = () => {
           Download Brochure
         </a>
         <a
-          href="/enquiry"
+          href="#"
           className="flex items-center gap-2 border-2 border-[#ff6b35] hover:bg-[#ff6b35] hover:text-white text-[#ff6b35] text-lg px-6 py-3 rounded-lg font-semibold shadow transition"
         >
           <FaRegEnvelope className="w-5 h-5" />

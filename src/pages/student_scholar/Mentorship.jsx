@@ -4,19 +4,24 @@ import { motion } from "framer-motion";
 const Mentorship = () => {
   const mentorshipHighlights = [
     {
-      title: "1-on-1 Guidance",
+      title: "Individualized Guidance",
       description:
-        "Work closely with industry experts who provide personalized mentorship tailored to your growth path.",
+        "Tailored one-on-one sessions where mentees receive direct feedback on debate style, argumentation, and mastery of Purva Paksha techniques.",
     },
     {
-      title: "Career Insights",
+      title: "Content Customization",
       description:
-        "Gain valuable industry knowledge, academic expertise, and practical advice to shape your professional journey.",
+        "Personalized reading lists, debate topics, or philosophical texts chosen based on the mentee’s interests and current skill level.",
     },
     {
-      title: "Intellectual Growth",
+      title: "Role Modelling and Tradition",
       description:
-        "Develop critical thinking, communication, and leadership skills with the support of experienced mentors.",
+        "Mentor demonstrates both Indian classical debating methods and how to adapt them for modern competitive or academic contexts.",
+    },
+    {
+      title: "Community Access",
+      description:
+        "Mentees may also join small group workshops, alumni forums, or participate in exclusive Tark Vitark Global events for networking and deeper immersion.",
     },
   ];
 
@@ -25,21 +30,22 @@ const Mentorship = () => {
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-          Personal Mentorship by Industry Expert
+          One-on-One Mentorship Programme
         </h2>
         <div className="w-20 h-1 bg-[#ff6b35] mx-auto mt-4 rounded-full"></div>
         <p className="mt-6 text-lg text-gray-700 max-w-3xl mx-auto">
-          This program connects students and scholars with{" "}
+          A structured mentorship initiative where{" "}
           <span className="font-semibold text-[#ff6b35]">
             experienced mentors
           </span>{" "}
-          who share industry insights, academic expertise, and career advice to
-          help mentees grow both intellectually and professionally.
+          guide mentees through personalized learning, traditional debating
+          techniques, and professional growth while fostering intellectual and
+          academic excellence.
         </p>
       </div>
 
       {/* Mentorship Highlights */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
         {mentorshipHighlights.map((highlight, index) => (
           <motion.div
             key={index}

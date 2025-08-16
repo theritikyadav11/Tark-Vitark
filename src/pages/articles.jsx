@@ -80,7 +80,7 @@ const Articles = () => {
             </span>
           </div>
           <a
-            href="/subscribe"
+            href="#"
             className="bg-[#ff6b35] hover:bg-[#e85a2d] text-white px-6 py-3 rounded-lg font-semibold shadow transition"
           >
             Subscribe

@@ -49,7 +49,7 @@ export default function Navbar() {
           <img
             src="/logo3.png"
             alt="Tark-Vitark Logo"
-            className="w-20 h-20 object-contain "
+            className="w-22 h-22 object-contain "
           />
 
           <span className="text-lg font-semibold">TarkVitarkGlobal</span>
