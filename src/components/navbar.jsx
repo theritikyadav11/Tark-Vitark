@@ -52,7 +52,7 @@ export default function Navbar() {
             className="w-22 h-22 object-contain "
           />
 
-          <span className="text-lg font-semibold">TarkVitarkGlobal</span>
+          <span className="text-lg font-semibold">TARK VITARK GLOBAL</span>
         </Link>
 
         {/* Desktop menu */}
