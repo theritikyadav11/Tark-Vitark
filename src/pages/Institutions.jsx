@@ -11,7 +11,7 @@ const Institutions = () => {
       {/* Hero Section */}
       <section className="w-full py-12 bg-gradient-to-r from-[#ff6b35]/20 via-white to-[#ff6b35]/20 flex flex-col items-center">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 text-center">
-          Institutions Partnership & Alliances
+          Partnership & Alliances
         </h1>
         <p className="text-xl md:text-2xl text-gray-700 text-center max-w-3xl">
           At Tark Vitark Global, we believe in the power of collaboration to
