@@ -39,62 +39,47 @@ const Slideshow = () => {
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef(null);
 
-  // Swipe state
-  const startX = useRef(0);
-  const endX = useRef(0);
-  const isDragging = useRef(false);
-
   useEffect(() => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(
       () => setCurrent((prev) => (prev + 1) % images.length),
-      3000 // 3 seconds per slide
+      2000
     );
     return () => clearTimeout(timeoutRef.current);
   }, [current]);
 
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
   const goToSlide = (idx) => setCurrent(idx);
-
-  // Touch event handlers for mobile swipe
-  const handleTouchStart = (e) => {
-    startX.current = e.touches[0].clientX;
-    isDragging.current = true;
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-  };
-
-  const handleTouchMove = (e) => {
-    endX.current = e.touches.clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!isDragging.current) return;
-    const diff = startX.current - endX.current;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        // Swipe left → next slide
-        setCurrent((prev) => (prev + 1) % images.length);
-      } else {
-        // Swipe right → previous slide
-        setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-      }
-    }
-    isDragging.current = false;
-  };
 
   return (
     <div className="w-full flex justify-center pt-8 pb-4 bg-transparent">
-      <div
-        className="relative w-full max-w-5xl px-6 sm:px-8 lg:px-12 select-none"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ cursor: "grab" }}
-      >
+      <div className="relative w-full max-w-5xl px-6 sm:px-8 lg:px-12">
         <img
           src={images[current]}
           alt={`slide ${current + 1}`}
           className="w-full h-[400px] sm:h-[420px] object-cover rounded-xl shadow-lg bg-white"
         />
+        {/* Left Arrow */}
+        <button
+          onClick={prevSlide}
+          className="absolute top-1/2 left-6 -translate-y-1/2 bg-gray-900/80 text-white rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 transition"
+          aria-label="Previous slide"
+        >
+          &#8592;
+        </button>
+        {/* Right Arrow */}
+        <button
+          onClick={nextSlide}
+          className="absolute top-1/2 right-6 -translate-y-1/2 bg-gray-900/80 text-white rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 transition"
+          aria-label="Next slide"
+        >
+          &#8594;
+        </button>
         {/* Dots */}
         <div className="flex justify-center mt-4 gap-2">
           {images.map((_, idx) => (
