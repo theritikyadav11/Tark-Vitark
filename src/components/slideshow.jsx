@@ -39,7 +39,7 @@ const Slideshow = () => {
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef(null);
 
-  // Touch/mouse positions for swipe detection
+  // Swipe state
   const startX = useRef(0);
   const endX = useRef(0);
   const isDragging = useRef(false);
@@ -48,13 +48,14 @@ const Slideshow = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(
       () => setCurrent((prev) => (prev + 1) % images.length),
-      3000 // slower auto-slide for better UX with swipe
+      3000 // 3 seconds per slide
     );
     return () => clearTimeout(timeoutRef.current);
   }, [current]);
 
   const goToSlide = (idx) => setCurrent(idx);
 
+  // Touch event handlers for mobile swipe
   const handleTouchStart = (e) => {
     startX.current = e.touches[0].clientX;
     isDragging.current = true;
@@ -70,36 +71,10 @@ const Slideshow = () => {
     const diff = startX.current - endX.current;
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
-        // Swipe left -> next slide
+        // Swipe left → next slide
         setCurrent((prev) => (prev + 1) % images.length);
       } else {
-        // Swipe right -> previous slide
-        setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-      }
-    }
-    isDragging.current = false;
-  };
-
-  // Optional: for mouse dragging on desktop
-  const handleMouseDown = (e) => {
-    startX.current = e.clientX;
-    isDragging.current = true;
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-  };
-
-  const handleMouseMove = (e) => {
-    if (isDragging.current) {
-      endX.current = e.clientX;
-    }
-  };
-
-  const handleMouseUp = () => {
-    if (!isDragging.current) return;
-    const diff = startX.current - endX.current;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        setCurrent((prev) => (prev + 1) % images.length);
-      } else {
+        // Swipe right → previous slide
         setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
       }
     }
@@ -113,10 +88,6 @@ const Slideshow = () => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp} // to handle drag release outside box
         style={{ cursor: "grab" }}
       >
         <img
