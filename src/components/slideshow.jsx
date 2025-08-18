@@ -27,12 +27,6 @@ const images = [
   slide8,
   slide9,
   slide10,
-  slide11,
-  slide12,
-  slide13,
-  slide14,
-  slide15,
-  slide16,
 ];
 
 const Slideshow = () => {
