@@ -15,7 +15,10 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <span className="text-red-700 font-semibold">Follow us on</span>
           <div className="flex gap-4 text-2xl">
-            <a href="#" className="text-pink-500 hover:opacity-80">
+            <a
+              href="https://www.instagram.com/tarkvitarkglobal?igsh=MTI4OHRwZm5vMmU5OQ=="
+              className="text-pink-500 hover:opacity-80"
+            >
               <FaInstagram />
             </a>
             <a href="#" className="text-blue-600 hover:opacity-80">
